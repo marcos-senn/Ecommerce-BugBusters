@@ -3,6 +3,7 @@ package com.bugbusters.EcommerceBack.dto.dashboard;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import org.springframework.web.multipart.MultipartFile;
 
 public record ActualizarProductoDTO(
         @NotNull(message = "Debes ingresar el ID del producto")
@@ -14,8 +15,8 @@ public record ActualizarProductoDTO(
         @NotNull(message = "Debes incluir un precio para el producto")
         @Positive(message = "El precio no puede ser negativo o cero")
         Double precio,
-        @NotBlank(message = "Debes incluir un imagen para el producto")
-        String imagenUrl,
+        @NotNull(message = "Debes incluir un imagen para el producto")
+        MultipartFile imagen,
         @NotNull(message = "Debes asignarle una categoria al producto")
         CategoriaDTO categoria
 ) {

@@ -19,7 +19,7 @@ public class Producto {
     @Column(nullable = false)
     private String nombre;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String descripcion;
 
     @Column(nullable = false)
@@ -28,8 +28,9 @@ public class Producto {
     @Column(name = "imagen_url", nullable = false)
     private String imagenUrl;
 
-    @OneToOne(
+    @ManyToOne(
             targetEntity = Categoria.class
     )
+    @JoinColumn(name = "id_categoria", nullable = false)
     private Categoria categoria;
 }
