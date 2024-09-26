@@ -24,7 +24,6 @@ public class ProductoController {
 
     //Controladores para el crud del admin
 
-    //TODO: crear los endpoints
     @GetMapping("/admin")
     public ResponseEntity<List<RespuestaProductoDTO>> listarProductos() {
         List<RespuestaProductoDTO> productos = productoService.getProductos();
@@ -54,8 +53,6 @@ public class ProductoController {
         return ResponseEntity.noContent().build();
 
     }
-
-    //TODO: investigar como tratar archivos de imagenes
 
 
 
