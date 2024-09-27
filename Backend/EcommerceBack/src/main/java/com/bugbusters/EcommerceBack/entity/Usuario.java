@@ -31,15 +31,12 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER) //definir desde donde se especificarán los roles
-    private Set<String> roles;
+    @Column(nullable = false)
+    private String rol;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Convierte el Set de roles a un Set de GrantedAuthority
-        return roles.stream()
-                    .map(role -> (GrantedAuthority) () -> role) // Convierte el rol a GrantedAuthority
-                    .collect(Collectors.toSet());
+        return Set.of((GrantedAuthority) () -> rol); // Devuelve un único GrantedAuthority
     }
 
     @Override

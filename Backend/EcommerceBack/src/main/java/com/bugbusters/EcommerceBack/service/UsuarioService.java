@@ -34,7 +34,7 @@ public class UsuarioService implements UserDetailsService{
         usuario.setUsuario(usuarioDTO.getUsuario());
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setPassword(passwordEncoder.encode(usuarioDTO.getPassword()));
-        usuario.setRoles(new HashSet<>(Set.of("ROLE_USER")));
+        usuario.setRol("ROLE_USER");
 
         return usuarioRepository.save(usuario); //se guarda al usuario
     }

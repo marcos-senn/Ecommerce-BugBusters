@@ -3,5 +3,5 @@ CREATE TABLE usuarios (
                           usuario VARCHAR(255) NOT NULL UNIQUE,
                           email VARCHAR(255) NOT NULL UNIQUE,
                           password VARCHAR(255) NOT NULL,
-                          roles TEXT[]
+                          rol VARCHAR(255) NOT NULL
 );
