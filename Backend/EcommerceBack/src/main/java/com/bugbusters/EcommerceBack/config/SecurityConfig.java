@@ -12,26 +12,26 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfig {
 
     @Autowired
     private UsuarioService usuarioService;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() { //encriptación de contraseña
-        return new BCryptPasswordEncoder();
-    }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+
 
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception { 
-        AuthenticationManagerBuilder authenticationManagerBuilder = 
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+        AuthenticationManagerBuilder authenticationManagerBuilder =
                 http.getSharedObject(AuthenticationManagerBuilder.class);
-        
+
         authenticationManagerBuilder
             .userDetailsService(usuarioService)
-            .passwordEncoder(passwordEncoder());
-        
+            .passwordEncoder(passwordEncoder);
+
         return authenticationManagerBuilder.build();
     }
     

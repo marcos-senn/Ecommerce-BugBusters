@@ -25,7 +25,7 @@ public class UsuarioService implements UserDetailsService{
 
     //Registro de usuarios
     public Usuario registrarUsuario(UsuarioDTO usuarioDTO) { 
-        if (usuarioRepository.existsByUsername(usuarioDTO.getUsuario()) || 
+        if (usuarioRepository.existsByUsuario(usuarioDTO.getUsuario()) ||
             usuarioRepository.existsByEmail(usuarioDTO.getEmail())) {
             throw new RuntimeException("El usuario o email ya está registrado");
         }
@@ -38,15 +38,16 @@ public class UsuarioService implements UserDetailsService{
 
         return usuarioRepository.save(usuario); //se guarda al usuario
     }
+
     //Inicio de sesión o login
     public Usuario obtenerUsuarioPorUsuario(String usuario) {
-        return usuarioRepository.findByUsername(usuario)
+        return usuarioRepository.findByUsuario(usuario)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
     @Override
     public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
         // Busca al usuario por su nombre de usuario
-        Optional<Usuario> usuarioOpt = usuarioRepository.findByUsername(usuario);
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByUsuario(usuario);
 
         if (!usuarioOpt.isPresent()) { //método para verificar si el Optional contiene un valor
             throw new UsernameNotFoundException("Usuario no encontrado con el nombre de usuario: " + usuario);
