@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clave de Sol - La clave para tu mejor sonido</title>
+    <title>Iniciar Sesión - Clave de Sol</title>
     <link rel="icon" href="css/logo solo.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css"> <!-- Enlace al CSS compilado -->
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuentes llamativas -->
@@ -34,24 +34,25 @@
         </nav>
     </header>
 
-    <!-- Sección Principal -->
-<main class="py-16 text-center">
-    <!-- Contenedor de imagen que abarca todo el ancho -->
-    <div class="w-full mb-4 overflow-hidden">
-        <img src="css/fondo portada.png" alt="Logo Clave de Sol" class="w-full h-auto object-cover">
-    </div>
-    <div class="container mx-auto">
-        <h1 class="text-5xl font-bold mb-4 font-Montserrat">
-            La clave para tu mejor sonido
-        </h1>
-        <p class="text-xl mb-8 font-Montserrat">
-            Descubre nuestros productos y vive la experiencia musical.
-        </p>
-        <a href="productos.html" class="bg-custom-orange text-custom-text-dark px-6 py-3 rounded-lg hover:bg-opacity-80">
-            Ver Productos
-        </a>
-    </div>
-</main>
+    <section class="py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Iniciar Sesión</h2>
+            <form action="login.php" method="POST" class="bg-custom-light-brown p-6 rounded-lg">
+                <div class="mb-4">
+                    <label for="email" class="block text-lg mb-2">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-lg mb-2">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="w-full p-2 rounded" required>
+                </div>
+                <button type="submit" class="bg-custom-orange text-white px-4 py-2 rounded hover:bg-opacity-80">
+                    Iniciar Sesión
+                </button>
+            </form>
+            <p class="mt-4">¿No tienes cuenta? <a href="register.html" class="text-custom-orange">Regístrate aquí</a></p>
+        </div>
+    </section>
 
  <!-- Sección Final -->
  <footer class="bg-custom-light-brown py-4 text-center">

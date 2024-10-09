@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Clave de Sol</title>
+    <link rel="icon" href="css/logo solo.png" type="image/png">
+    <link rel="stylesheet" href="css/styles.css"> <!-- Enlace al CSS compilado -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuentes llamativas -->
+</head>
+
+<body class="bg-custom-dark-brown text-custom-text-light">
+    <!-- Barra de Tareas -->
+    <header class="bg-custom-light-brown">
+        <nav class="flex justify-between items-center p-4">
+            <div class="text-3xl font-bold">
+                <img src="css/logo solo.png" alt="Logo Clave de Sol" class="mr-2 object-contain" style="width: 90px; height: 90px;">
+            </div>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-custom-orange">Inicio</a></li>
+                <li><a href="sobre-nosotros.html" class="hover:text-custom-orange">Sobre Nosotros</a></li>
+                <li><a href="productos.html" class="hover:text-custom-orange">Productos</a></li>
+                <li><a href="carrito.html" class="hover:text-custom-orange">Carrito de Compras</a></li>
+                <li><a href="contacto.html" class="hover:text-custom-orange">Contacto</a></li>
+                <li><a href="login.html" class="hover:text-custom-orange">Iniciar Sesión</a></li>
+                <li><a href="register.html" class="hover:text-custom-orange">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="bg-custom-light-brown py-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4 font-Montserrat text-custom-orange">Contacto</h2>
+            <p class="text-lg mb-8 font-Montserrat text-custom-text-dark">Si tienes preguntas, ¡no dudes en contactarnos!</p>
+
+            <!-- Email -->
+            <div class="flex items-center justify-center mb-4">
+                <span class="mr-2">
+                    <img src="css/correo logo.png" alt="Email" style="height: 1.5rem; width: 1.5rem;" class="inline-block">
+                </span>
+                <p class="text-lg font-Montserrat text-custom-text-dark">Email: contacto@clavedesol.com</p>
+            </div>
+
+            <!-- Ubicación -->
+            <div class="flex items-center justify-center mb-4">
+                <span class="mr-2">
+                    <img src="css/ubicacion.png" alt="Ubicación" style="height: 1.5rem; width: 1.5rem;" class="inline-block">
+                </span>
+                <p class="text-lg font-Montserrat text-custom-text-dark">Ubicación: San Rafael, Mendoza</p>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="flex items-center justify-center mb-4">
+                <span class="mr-2">
+                    <img src="css/telefono-logo.png" alt="Teléfono" style="height: 1.5rem; width: 1.5rem;" class="inline-block">
+                </span>
+                <p class="text-lg font-Montserrat text-custom-text-dark">Teléfono: +54 9 1234 5678</p>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <h3 class="text-2xl font-bold mb-4 font-Montserrat text-custom-orange">Envíanos tu consulta</h3>
+
+            <div class="grid grid-cols-1 gap-4">
+                <div class="mb-4">
+                    <label for="nombre" class="block text-sm font-medium text-custom-text-dark">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-transparent text-custom-text-light">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-custom-text-dark">Email</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-transparent text-custom-text-light">
+                </div>
+                <div class="mb-4">
+                    <label for="consulta" class="block text-sm font-medium text-custom-text-dark">Consulta</label>
+                    <textarea id="consulta" name="consulta" rows="4" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-transparent text-custom-text-light"></textarea>
+                </div>
+                <button type="submit" class="bg-custom-orange text-white px-2 py-0.5 rounded-md hover:bg-opacity-80 text-sm">Enviar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Final -->
+    <footer class="bg-custom-light-brown py-4 text-center">
+        <p class="text-custom-text-dark">
+            © 2024 Clave de Sol. Todos los derechos reservados.
+        </p>
+    </footer>
+
+</body>
+
+</html>
