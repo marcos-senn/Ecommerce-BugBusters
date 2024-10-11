@@ -8,6 +8,7 @@ import com.bugbusters.EcommerceBack.service.ProductoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,12 +26,14 @@ public class ProductoController {
     //Controladores para el crud del admin
 
     @GetMapping("/admin")
+    @PreAuthorize("isAuthenticated() and hasRole('ADMIN')")
     public ResponseEntity<List<RespuestaProductoDTO>> listarProductos() {
         List<RespuestaProductoDTO> productos = productoService.getProductos();
         return ResponseEntity.ok(productos);
     }
 
     @PostMapping("/admin")
+    @PreAuthorize("isAuthenticated() and hasRole('ADMIN')")
     @Transactional
     public ResponseEntity crearProducto(@ModelAttribute @Valid CrearProductoDTO productoDTO){
         RespuestaProductoDTO producto = productoService.saveProducto(productoDTO);
@@ -39,6 +42,7 @@ public class ProductoController {
 
 
     @PutMapping("/admin")
+    @PreAuthorize("isAuthenticated() and hasRole('ADMIN')")
     @Transactional
     public ResponseEntity modificarProducto(@Valid ActualizarProductoDTO productoDTO){
         RespuestaProductoDTO productoActualizado = productoService.updateProducto(productoDTO);
@@ -47,6 +51,7 @@ public class ProductoController {
 
 
     @DeleteMapping("/admin/{id}")
+    @PreAuthorize("isAuthenticated() and hasRole('ADMIN')")
     @Transactional
     public ResponseEntity eliminarProducto(@PathVariable Long id){
         productoService.deleteProducto(id);
