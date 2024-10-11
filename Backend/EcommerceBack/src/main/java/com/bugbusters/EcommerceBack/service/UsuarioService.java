@@ -1,6 +1,6 @@
 package com.bugbusters.EcommerceBack.service;
 
-import com.bugbusters.EcommerceBack.dto.UsuarioDTO;
+import com.bugbusters.EcommerceBack.dto.UsuarioRegistroDTO;
 import com.bugbusters.EcommerceBack.entity.Usuario;
 import com.bugbusters.EcommerceBack.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class UsuarioService implements UserDetailsService{
@@ -24,40 +22,40 @@ public class UsuarioService implements UserDetailsService{
     private PasswordEncoder passwordEncoder;
 
     //Registro de usuarios
-    public Usuario registrarUsuario(UsuarioDTO usuarioDTO) { 
-        if (usuarioRepository.existsByUsuario(usuarioDTO.getUsuario()) ||
-            usuarioRepository.existsByEmail(usuarioDTO.getEmail())) {
+    public Usuario registrarUsuario(UsuarioRegistroDTO usuarioRegistroDTO) {
+        if (usuarioRepository.existsByUsuario(usuarioRegistroDTO.getUsuario()) ||
+            usuarioRepository.existsByEmail(usuarioRegistroDTO.getEmail())) {
             throw new RuntimeException("El usuario o email ya está registrado");
         }
 
         Usuario usuario = new Usuario();
-        usuario.setUsuario(usuarioDTO.getUsuario());
-        usuario.setEmail(usuarioDTO.getEmail());
-        usuario.setPassword(passwordEncoder.encode(usuarioDTO.getPassword()));
+        usuario.setUsuario(usuarioRegistroDTO.getUsuario());
+        usuario.setEmail(usuarioRegistroDTO.getEmail());
+        usuario.setPassword(passwordEncoder.encode(usuarioRegistroDTO.getPassword()));
         usuario.setRol("ROLE_USER");
 
         return usuarioRepository.save(usuario); //se guarda al usuario
     }
 
     //Inicio de sesión o login
-    public Usuario obtenerUsuarioPorUsuario(String usuario) {
-        return usuarioRepository.findByUsuario(usuario)
+    public Usuario obtenerUsuarioPorEmail(String email) {
+        return usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
     @Override
-    public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
-        // Busca al usuario por su nombre de usuario
-        Optional<Usuario> usuarioOpt = usuarioRepository.findByUsuario(usuario);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        // Busca al usuario por su email
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(email);
 
         if (!usuarioOpt.isPresent()) { //método para verificar si el Optional contiene un valor
-            throw new UsernameNotFoundException("Usuario no encontrado con el nombre de usuario: " + usuario);
+            throw new UsernameNotFoundException("Usuario no encontrado con el email: " + email);
         }
 
         Usuario usuarioEntidad = usuarioOpt.get();
         
         // Retorna al usuario convertido en UserDetails
-        return new org.springframework.security.core.userdetails.User( //autenticación don Spring Security
-                usuarioEntidad.getUsuario(),
+        return new org.springframework.security.core.userdetails.User( //autenticación con Spring Security
+                usuarioEntidad.getEmail(),
                 usuarioEntidad.getPassword(),
                 true, true, true, true, 
                 usuarioEntidad.getAuthorities() //roles asociados con el usuario

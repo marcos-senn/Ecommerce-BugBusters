@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 import java.util.Set;
-import java.util.stream.Collectors;
+
 @Data //getters, setters y toString
 @AllArgsConstructor //constructor con todos los parámetros
 @NoArgsConstructor //constructor vacío
@@ -32,7 +32,7 @@ public class Usuario implements UserDetails {
     private String password;
 
     @Column(nullable = false)
-    private String rol;
+    private String rol = "ROLE_USER";
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

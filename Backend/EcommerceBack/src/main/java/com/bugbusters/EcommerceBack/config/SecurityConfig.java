@@ -1,5 +1,7 @@
 package com.bugbusters.EcommerceBack.config;
 
+import com.bugbusters.EcommerceBack.repository.UsuarioRepository;
+import com.bugbusters.EcommerceBack.service.TokenService;
 import com.bugbusters.EcommerceBack.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +15,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 //@EnableWebSecurity
@@ -23,6 +26,12 @@ public class SecurityConfig {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private TokenService tokenService;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
 
 
@@ -44,9 +53,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeRequests()
-                .requestMatchers(HttpMethod.POST,  "/api/usuarios").permitAll()
-                .and()
+                .authorizeRequests(auth -> auth
+                        .requestMatchers(HttpMethod.POST, "/usuarios", "/iniciar-sesion").permitAll()
+                        .anyRequest().authenticated())
+                .addFilterBefore(new SecurityFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
