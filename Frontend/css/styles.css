@@ -668,8 +668,8 @@ video {
 }
 
 .py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: 7.5rem;
+  padding-bottom: 22.5rem;
 }
 
 .py-16 {
@@ -745,3 +745,61 @@ video {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+.my-custom-button {
+  @apply bg-custom-orange text-white font-bold py-2 px-4 rounded-lg hover:bg-opacity-80;
+  width: 100%; 
+
+  @media (min-width: 768px) {
+    
+    width: 50%;
+  }
+}
+.my-form {
+
+  background-color: #59463a; 
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-control {
+
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-container {
+  /* Contenedor para el botón */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.my-custom-button {
+  background-color: #FFD700;
+  color: #333;
+  padding: 10px 20px;
+  flex: 0 0 auto; 
+  margin-bottom: 40px; 
+}
+.map-section {
+  @apply bg-gray-200 p-4;
+}
+header {
+  @apply bg-gray-800 text-white py-4;
+}
+footer {
+  @apply bg-custom-light-brown w-full py-8;
+}
+
+
+  
+
+.bg-custom-light-brown {
+  padding: 20px; 
+}
+
