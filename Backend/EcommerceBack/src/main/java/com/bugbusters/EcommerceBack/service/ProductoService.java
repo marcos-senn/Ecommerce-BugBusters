@@ -137,4 +137,10 @@ public class ProductoService {
         }
 
     }
+
+    //métodos para los productos del endpoint productos
+
+    public List<Producto> obtenerProductosPorCategoria(String categoria) {
+        return productoRepository.findByCategoriaNombre(categoria);
+    }
 }

@@ -27,7 +27,7 @@ public class ProductoController {
 
     @GetMapping("/admin")
     @PreAuthorize("isAuthenticated() and hasRole('ADMIN')")
-    public ResponseEntity<List<RespuestaProductoDTO>> listarProductos() {
+    public ResponseEntity<List<RespuestaProductoDTO>> listarProductosAdmin() {
         List<RespuestaProductoDTO> productos = productoService.getProductos();
         return ResponseEntity.ok(productos);
     }
@@ -62,4 +62,17 @@ public class ProductoController {
 
 
     //Controladores para la página productos
+
+    @GetMapping("/productos")
+    public ResponseEntity<List<RespuestaProductoDTO>> listarProductos() {
+        List<RespuestaProductoDTO> productos = productoService.getProductos();
+        return ResponseEntity.ok(productos);
+    }
+
+    @GetMapping("/productos/{categoria}")
+    public ResponseEntity<List<Producto>> obtenerProductosPorCategoria(@PathVariable String categoria) {
+        List<Producto> productos = productoService.obtenerProductosPorCategoria(categoria);
+        return ResponseEntity.ok(productos);
+    }
+
 }

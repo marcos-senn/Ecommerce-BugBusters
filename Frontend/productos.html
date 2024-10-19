@@ -10,15 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet"> <!-- Fuentes llamativas -->
     <link rel="stylesheet" href="css/estilos.css"> <!-- Estilos css personalizados -->
-    <style>
-        .product-card {
-            transition: transform 0.2s;
-        }
-
-        .product-card:hover {
-            transform: scale(1.05);
-        }
-    </style>
 </head>
 
 <body class="bg-custom-dark-brown text-custom-text-light" style="height: 100vh; display: flex; flex-direction: column;">
@@ -51,11 +42,11 @@
             <aside class="w-1/4 bg-white rounded-lg p-4 mr-4 shadow-lg">
                 <h2 class="text-lg font-bold mb-4">Filtros</h2>
                 <ul class="space-y-2">
-                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange">Guitarras</a></li>
-                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange">Bajos</a></li>
-                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange">Baterías</a></li>
-                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange">Teclados</a></li>
-                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange">Accesorios</a></li>
+                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange categoria" data-categoria="Guitarras">Guitarras</a></li>
+                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange categoria" data-categoria="Bajos">Bajos</a></li>
+                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange categoria" data-categoria="Baterias">Baterías</a></li>
+                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange categoria" data-categoria="Teclados">Teclados</a></li>
+                    <li><a href="#" class="block text-custom-text-dark hover:text-custom-orange categoria" data-categoria="Accesorios">Accesorios</a></li>
                 </ul>
             </aside>
 
@@ -64,29 +55,7 @@
                 <h2 class="text-3xl font-bold mb-4 font-Montserrat text-custom-orange">Nuestros Productos</h2>
                 <p class="text-lg mb-4 font-Montserrat">Aquí puedes encontrar una amplia gama de instrumentos musicales.
                 </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="product-card bg-white rounded-lg p-4 shadow-lg cursor-pointer"
-                        onclick="window.location='producto1.html'">
-                        <img src="img/guitarra.jpg" alt="Guitarra Acústica" class="mb-2 rounded">
-                        <h3 class="font-bold text-lg font-Montserrat">Guitarra Acústica</h3>
-                        <p class="font-Montserrat">Perfecta para cualquier estilo musical.</p>
-                        <p class="font-bold text-xl mt-2">$300</p>
-                    </div>
-                    <div class="product-card bg-white rounded-lg p-4 shadow-lg cursor-pointer"
-                        onclick="window.location='producto2.html'">
-                        <img src="img/piano.jpg" alt="Piano Digital" class="mb-2 rounded">
-                        <h3 class="font-bold text-lg font-Montserrat">Piano Digital</h3>
-                        <p class="font-Montserrat">Calidad de sonido excepcional.</p>
-                        <p class="font-bold text-xl mt-2">$500</p>
-                    </div>
-                    <div class="product-card bg-white rounded-lg p-4 shadow-lg cursor-pointer"
-                        onclick="window.location='producto3.html'">
-                        <img src="img/bateria.jpg" alt="Batería Eléctrica" class="mb-2 rounded">
-                        <h3 class="font-bold text-lg font-Montserrat">Batería Eléctrica</h3>
-                        <p class="font-Montserrat">Para los amantes del ritmo.</p>
-                        <p class="font-bold text-xl mt-2">$700</p>
-                    </div>
-                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="productos-container"></div>
             </div>
         </div>
     </section>
@@ -99,6 +68,7 @@
         <p><a style="color: #F2A007;" href="./sobreNosotros/aboutUs.html">Desarrolladores</a></p>
     </footer>
     
+    <script src="js/productos.js"></script>
     <script src="js/header-update.js"></script>
 
 </body>

@@ -31,7 +31,7 @@ public class LoginController {
     @PostMapping()
     public ResponseEntity<Map<String, String>> login(@RequestBody @Valid UsuarioLoginDTO loginDTO) {
         Usuario usuario = usuarioService.obtenerUsuarioPorEmail(loginDTO.email());
-        
+
         String token = tokenService.generarToken(usuario);
 
         Map<String, String> response = new HashMap<>();
