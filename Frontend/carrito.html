@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito - Clave de Sol</title>
     <link rel="icon" href="css/logo solo.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css"> <!-- Enlace al CSS compilado -->
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuentes llamativas -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet"> <!-- Fuentes llamativas -->
+    <link rel="stylesheet" href="css/estilos.css"> <!-- Estilos css personalizados -->    
 </head>
-<body class="bg-custom-dark-brown text-custom-text-light">
-<header class="bg-custom-light-brown py-1"> 
-    <div class="container mx-auto flex justify-center">
-    </div>
-</header>
 
+<body class="bg-custom-dark-brown text-custom-text-light" style="display: flex; flex-direction: column; height: 100vh;">
 
-    
     <!-- Barra de Tareas -->
     <header class="bg-custom-light-brown">
         <nav class="flex justify-between items-center">
-            <div class="text-3xl font-bold">
-                <img src="css/logo solo.png" alt="Logo Clave de Sol" class="mr-2 object-contain" style="width: 90px; height: 90px;">
-
+            <div class="text-3xl font-bold flex items-center">
+                <img src="assets/logo solo.png" alt="Logo Clave de Sol" class="mr-2 object-contain"
+                    style="width: 90px; height: 90px;">
+                <h3><a href="index.html">Clave de Sol</a></h3>
             </div>
             <ul class="flex space-x-4">
                 <li><a href="index.html" class="hover:text-custom-orange">Inicio</a></li>
                 <li><a href="sobre-nosotros.html" class="hover:text-custom-orange">Sobre Nosotros</a></li>
                 <li><a href="productos.html" class="hover:text-custom-orange">Productos</a></li>
-                <li><a href="carrito.html" class="hover:text-custom-orange">Carrito de Compras</a></li>
                 <li><a href="contacto.html" class="hover:text-custom-orange">Contacto</a></li>
+            </ul>   
+            <ul class="flex space-x-4">
                 <li><a href="login.html" class="hover:text-custom-orange">Iniciar Sesión</a></li>
                 <li><a href="register.html" class="hover:text-custom-orange">Registrarse</a></li>
+            </ul> 
         </nav>
     </header>
 
     <!-- Sección Carrito -->
-    <section id="carrito" class="bg-custom-very-light-brown py-10">
-        <div class="container mx-auto text-center">
+    <section id="carrito" class="bg-custom-very-light-brown" style="flex-grow: 1; width: 100%;">
+        <div class="container mx-auto text-center" style="margin-top: 100px;">
             <h2 class="text-3xl font-bold mb-4 font-Montserrat">Carrito de Compras</h2>
             <p class="text-lg mb-4 font-Montserrat">Visualiza los productos que has agregado a tu carrito.</p>
             <p class="text-lg font-Montserrat">Pronto habilitaremos esta sección.</p>
         </div>
     </section>
 
-       <!-- Sección Final -->
-       <footer class="bg-custom-light-brown py-4 text-center">
-        <p class="text-custom-text-dark">
+    <!-- Sección Final -->
+    <footer class="bg-custom-light-brown py-4 text-center">
+        <p class="text-custom-text-light">
             © 2024 Clave de Sol. Todos los derechos reservados.
         </p>
+        <p><a style="color: #F2A007;" href="./sobreNosotros/aboutUs.html">Desarrolladores</a></p>
     </footer>
 
+    <script src="js/header-update.js"></script>
+
 </body>
+
 </html>

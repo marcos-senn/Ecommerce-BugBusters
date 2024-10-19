@@ -41,7 +41,7 @@ btnLogin.addEventListener('click', async (event) => {
             window.location.href = "./index.html"   
         } else {
             const errorData = await response.json();
-            mensaje.textContent = Object.values(errorData).join(', ');
+            mensaje.textContent = errorData.error || Object.values(errorData).join(', ');
             mensaje.classList.remove("mensaje-ok");
             mensaje.classList.add("mensaje-error");
         }

@@ -31,10 +31,7 @@ public class LoginController {
     @PostMapping()
     public ResponseEntity<Map<String, String>> login(@RequestBody @Valid UsuarioLoginDTO loginDTO) {
         Usuario usuario = usuarioService.obtenerUsuarioPorEmail(loginDTO.email());
-        if (usuario == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Credenciales inválidas"));
-        }
-
+        
         String token = tokenService.generarToken(usuario);
 
         Map<String, String> response = new HashMap<>();
