@@ -25,4 +25,19 @@ li a:hover{
     transition: 0.1s ease;
 }
 
+.mensaje-ok{
+    margin: 10px auto;
+    color: white;
+    font-size: 18px;
+    background-color: #2ecc71;
+    width: 400px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.mensaje-error{
+    margin-top: 10px;
+    color: red;
+    font-size: 18px;
+}
 

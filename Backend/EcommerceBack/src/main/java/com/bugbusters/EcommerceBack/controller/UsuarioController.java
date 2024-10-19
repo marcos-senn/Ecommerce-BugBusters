@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -15,9 +17,9 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping("") //modificar ruta según el front
-    public String registrarUsuario(@RequestBody @Valid UsuarioRegistroDTO usuarioRegistroDTO) {
+    public Map<String, String> registrarUsuario(@RequestBody @Valid UsuarioRegistroDTO usuarioRegistroDTO) {
         usuarioService.registrarUsuario(usuarioRegistroDTO);
-        return "Usuario registrado con éxito";//comentar esta línea y después cambiar por HTTP 
+        return Map.of("message", "Usuario registrado con éxito");
     }
 
     @GetMapping("/{usuario}")  //modificar ruta según el front
