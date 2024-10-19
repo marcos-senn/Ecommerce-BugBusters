@@ -35,7 +35,7 @@ const obtenerProductos = async (url) => {
     try {
         const response = await fetch(url);
         const productos = await response.json();
-        
+
         crearProductos(productos)
         
     } catch (error) {

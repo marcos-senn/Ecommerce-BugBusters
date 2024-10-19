@@ -15,7 +15,7 @@ body {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-}
+} */
 
 h2{
     font-size: 20px;
@@ -25,27 +25,11 @@ h2{
     margin-top: 36px;
 }
 
-.barraDeTareas{
-    background-color: #594636;
-    background: linear-gradient(to top,#58412eb7 1%, #594636);
-    color: white;
-    width: auto;
-    height: 20px;
-    padding: 20px;
-    margin: 0;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0px 0px 15px 4px #4e4e4e;
-}
-
 .titulo{
-    background-color: #d5bdaec7;
     height: 80px;
-    width: 350px;
-    margin: 50px auto 0px auto ;
-    border-radius: 20px;
-    box-shadow: 0px 0px 15px 7px #594636;
-    cursor:default;
+    text-align: center;
+    margin: 50px 0px;
+    font-size: 40px;
 }
 
 h1{
@@ -135,4 +119,4 @@ h1{
 
 p{
     text-align: left;
-}
+} 
