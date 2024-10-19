@@ -36,10 +36,9 @@ btnLogin.addEventListener('click', async (event) => {
         
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('token', data.token); //guardamos el token en el local storage
-            console.log(`Bienvenido, ${data.usuario}`);
-            
-            
+            sessionStorage.setItem('token', data.token); //guardamos el token en el session storage
+            sessionStorage.setItem('usuario', data.usuario); //guardamos el usuario en el session storage
+            window.location.href = "./index.html"   
         } else {
             const errorData = await response.json();
             mensaje.textContent = Object.values(errorData).join(', ');
