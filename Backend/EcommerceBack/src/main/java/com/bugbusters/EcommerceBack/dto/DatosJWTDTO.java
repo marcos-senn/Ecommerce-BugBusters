@@ -1,4 +1,4 @@
 package com.bugbusters.EcommerceBack.dto;
 
-public class Borrar {
+public record DatosJWTDTO(String jwtToken) {
 }
